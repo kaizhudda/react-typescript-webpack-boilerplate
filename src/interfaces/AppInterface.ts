@@ -1,4 +1,4 @@
-export interface IAppProps {
+export interface AppProps {
   complier: string;
   framework: string;
 }
