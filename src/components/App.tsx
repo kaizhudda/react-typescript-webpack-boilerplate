@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+import * as PropTypes from 'prop-types';
 import { AppProps } from '../interfaces/AppInterface';
 
 export const App: React.FC<AppProps> = (props): JSX.Element => {
