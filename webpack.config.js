@@ -2,6 +2,9 @@ const path = require('path');
 
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: './src/index.tsx',
@@ -10,7 +13,7 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: 'bundle.js'
+    filename: devMode ? '[name].[hash].js' : '[name].[chunkhash].js'
   },
   module: {
     rules: [
@@ -32,6 +35,21 @@ module.exports = {
         ]
       },
       {
+        test: [/.css$|.scss$/],
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // publicPath: '/',
+              hmr: process.env.NODE_ENV === 'development'
+            }
+          },
+          'css-loader',
+          'postcss-loader',
+          'sass-loader'
+        ]
+      },
+      {
         enforce: "pre",
         test: /\.js$/,
         loader: "source-map-loader"
@@ -42,11 +60,22 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html'
     }),
+    new MiniCssExtractPlugin({
+      filename: devMode ? '[name].[chunkhash].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
+    }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
   ],
-  devtool: "source-map",
+  optimization: {
+    // minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()],
+    splitChunks: {
+      chunks: 'all',
+      name: 'vendor'
+    }
+  },
+  // devtool: 'source-map',
   devServer: {
     contentBase: 'dist', // everything will be served from dist
     hot: true, // enables hot reloading
