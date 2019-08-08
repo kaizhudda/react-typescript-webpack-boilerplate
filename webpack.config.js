@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const devMode = process.env.NODE_ENV !== 'production';
 
@@ -61,7 +62,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
+      publicUrl: process.env.npm_package_homepage
     }),
     new MiniCssExtractPlugin({
       filename: devMode ? '[name].[chunkhash].css' : '[name].[hash].css',
@@ -70,7 +72,13 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
-    new CleanWebpackPlugin()
+    new CleanWebpackPlugin(),
+    new CopyPlugin([
+      {
+        from: './public',
+        to: './'
+      }
+    ])
   ],
   optimization: {
     minimizer: [new UglifyJsPlugin(), new OptimizeCssAssetsPlugin()],
