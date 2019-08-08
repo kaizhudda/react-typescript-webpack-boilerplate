@@ -54,6 +54,22 @@ module.exports = {
         ]
       },
       {
+        test: /\.(png|svg|jpe?g|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 40000,
+              outputPath: 'assets'
+            }
+          },
+          {
+            loader: 'image-webpack-loader'
+          }
+        ]
+
+      },
+      {
         enforce: "pre",
         test: /\.js$/,
         loader: "source-map-loader"
