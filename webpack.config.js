@@ -20,7 +20,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, '/dist'),
-    filename: devMode ? '[name].[hash].js' : '[name].[chunkhash].js'
+    filename: devMode ? '[name].[hash].js' : '[name].[chunkhash].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -45,11 +46,7 @@ module.exports = {
         test: [/.css$|.scss$/],
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              // publicPath: '/',
-              hmr: process.env.NODE_ENV === 'development'
-            }
+            loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader
           },
           'css-loader',
           'postcss-loader',
@@ -78,6 +75,7 @@ module.exports = {
       }
     ]
   },
+  cache: false,
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
@@ -111,6 +109,9 @@ module.exports = {
     hot: true, // enables hot reloading
     overlay: true, // if an error occurs with syntax it will overlay the issue in the browser
     port: 6500,
-    historyApiFallback: true
-  },
+    historyApiFallback: true,
+    watchOptions: {
+      poll: true
+    }
+  }
 }
