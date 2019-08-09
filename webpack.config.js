@@ -13,7 +13,10 @@ const devMode = process.env.NODE_ENV !== 'production';
 module.exports = {
   entry: './src/index.tsx',
   resolve: {
-    extensions: ['.ts', '.tsx', '.js']
+    extensions: ['.ts', '.tsx', '.js'],
+    alias: {
+      'react-dom': '@hot-loader/react-dom'
+    }
   },
   output: {
     path: path.join(__dirname, '/dist'),
@@ -67,7 +70,6 @@ module.exports = {
             loader: 'image-webpack-loader'
           }
         ]
-
       },
       {
         enforce: "pre",
