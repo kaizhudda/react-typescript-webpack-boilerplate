@@ -12,8 +12,8 @@ This react boilerplate contains the following features:
   <!-- * [Redux](https://github.com/rackt/redux) for global state management
 - [Redux Thunk Middleware](https://github.com/reduxjs/redux-thunk) -->
 - [SCSS](https://sass-lang.com/), and CSS3 support
-  <!-- * [Jest/Enzyme](https://jestjs.io/) for adding unit tests & snapshot tests to the project -->
-  <!-- * [React-Helmet](https://github.com/nfl/react-helmet) to make your application SEO ready. -->
+  - [Jest/Enzyme](https://jestjs.io/) for adding unit tests & snapshot tests to the project
+    <!-- * [React-Helmet](https://github.com/nfl/react-helmet) to make your application SEO ready. -->
 
 #### Development Features
 
@@ -79,15 +79,7 @@ surge -p dist
 After which you will be shown your project & domain name.
 Hit `Enter` and it will build and deploy in a jiffy.
 
-## Deployment on Heroku
-
-TODO
-
-## Deployment on Netlify
-
-TODO
-
-### Using Redux DevTools
+<!-- ### Using Redux DevTools -->
 
 <!-- [Redux Devtools](https://github.com/gaearon/redux-devtools) are enabled by default in development.
 
