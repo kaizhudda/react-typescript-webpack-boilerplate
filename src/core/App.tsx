@@ -6,9 +6,19 @@ import { Routes } from '../routes';
 import './App.scss';
 
 const App: React.FC<AppProps> = (): JSX.Element => {
+  const [count, setCount] = React.useState(0);
+
   return (
     <div className="App">
       <Routes />
+      <button
+        onClick={() => setCount(count + 1)}
+        type="button"
+        className="button"
+      >
+        Count
+      </button>
+      {count}
     </div>
   );
 };

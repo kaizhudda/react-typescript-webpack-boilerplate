@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -33,10 +33,10 @@ module.exports = {
           {
             loader: 'awesome-typescript-loader',
             options: {
-              'useBabel': true,
-              'babelCore': '@babel/core',
-              'babelOptions': {
-                'babelrc': true
+              useBabel: true,
+              babelCore: '@babel/core',
+              babelOptions: {
+                babelrc: true
               }
             }
           }
@@ -69,9 +69,9 @@ module.exports = {
         ]
       },
       {
-        enforce: "pre",
+        enforce: 'pre',
         test: /\.js$/,
-        loader: "source-map-loader"
+        loader: 'source-map-loader'
       }
     ]
   },
@@ -103,7 +103,7 @@ module.exports = {
       name: 'vendor'
     }
   },
-  // devtool: 'source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: 'dist', // everything will be served from dist
     hot: true, // enables hot reloading
@@ -114,4 +114,4 @@ module.exports = {
       poll: true
     }
   }
-}
+};
