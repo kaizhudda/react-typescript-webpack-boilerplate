@@ -69,14 +69,16 @@
   "dependencies": {
     "@hot-loader/react-dom": "^16.8.6",
     "@types/history": "^4.7.2",
+    "@types/react-helmet": "^5.0.9",
     "@types/react-router-dom": "^4.3.4",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "history": "^4.9.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1",
     "react-hot-loader": "^4.12.10",
-    "react-router-dom": "^5.0.1",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.14.0"
+    "react-router-dom": "^5.0.1"
   }
 }
