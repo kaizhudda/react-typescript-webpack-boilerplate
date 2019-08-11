@@ -47,7 +47,7 @@
     "react/jsx-filename-extension": [
       "warn",
       {
-        "extensions": [".jsx", ".tsx"]
+        "extensions": [".jsx", ".tsx", "ts"]
       }
     ], // also want to use with ".tsx"
 
