@@ -91,7 +91,7 @@ The `public/` folder located at the root of this boilerplate is where you can pl
 
 ## Demo
 
-TODO
+[Live Demo](skillful-desk.surge.sh)
 
 <!-- A demonstration of this app can be seen [running on surge](http://boilerplate-redux.surge.sh) -->
 
