@@ -1,8 +1,20 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
-import { RouteComponentProps } from 'react-router-dom';
+import * as PropTypes from 'prop-types';
+import { fetchTest, FetchTestAction } from '../../store/actions';
+import { StoreState } from '../../store/reducers';
 
-export const Home: React.FC<RouteComponentProps> = (): JSX.Element => {
+interface HomeProps {
+  fetchTest(): FetchTestAction;
+  test: string;
+}
+
+export const _Home: React.FC<HomeProps> = (props): JSX.Element => {
+  React.useEffect(() => {
+    props.fetchTest();
+  }, []);
+  const { test } = props;
   return (
     <div>
       <Helmet>
@@ -14,6 +26,21 @@ export const Home: React.FC<RouteComponentProps> = (): JSX.Element => {
         />
       </Helmet>
       Homepage
+      {test}
     </div>
-  )
+  );
 };
+
+_Home.propTypes = {
+  fetchTest: PropTypes.func,
+  test: PropTypes.string
+};
+
+const mapStateToProps = (state: StoreState): { test: string } => {
+  return { test: state.test };
+};
+
+export const Home = connect(
+  mapStateToProps,
+  { fetchTest }
+)(_Home);
