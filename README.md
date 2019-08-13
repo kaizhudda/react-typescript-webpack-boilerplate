@@ -9,8 +9,8 @@ This react boilerplate contains the following features:
 - [Babel](http://babeljs.io) for transpiling ES6 and ES7
 - [React](https://github.com/facebook/react)
 - [React Router](https://github.com/rackt/react-router)
-  <!-- * [Redux](https://github.com/rackt/redux) for global state management
-- [Redux Thunk Middleware](https://github.com/reduxjs/redux-thunk) -->
+- [Redux](https://github.com/rackt/redux) for global state management
+- [Redux Thunk Middleware](https://github.com/reduxjs/redux-thunk)
 - [SCSS](https://sass-lang.com/), and CSS3 support
   - [Jest/Enzyme](https://jestjs.io/) for adding unit tests & snapshot tests to the project
     <!-- * [React-Helmet](https://github.com/nfl/react-helmet) to make your application SEO ready. -->
@@ -19,7 +19,7 @@ This react boilerplate contains the following features:
 
 - [Webpack Dev Server](https://webpack.js.org/configuration/dev-server/) A blazing fast local development server, with hot reloading
 - [React Hot Loader](https://github.com/gaearon/react-hot-loader) ability to modify react components in real time, without reloading the page, and without losing component state when using webpack dev server
-  <!-- * [Redux Dev Tools](https://github.com/gaearon/redux-devtools) to easily navigate your redux store tree and see actions and their effects, live. -->
+- [Redux Dev Tools](https://github.com/gaearon/redux-devtools) to easily navigate your redux store tree and see actions and their effects, live.
 - [ESLint](http://eslint.org) to maintain a consistent code style throughout your application
 - [Prettier](http://eslint.org) to enforce Eslint on save automatically
 
@@ -79,13 +79,11 @@ surge -p dist
 After which you will be shown your project & domain name.
 Hit `Enter` and it will build and deploy in a jiffy.
 
-<!-- ### Using Redux DevTools -->
+### Using Redux DevTools
 
-<!-- [Redux Devtools](https://github.com/gaearon/redux-devtools) are enabled by default in development.
+[Redux Devtools](https://github.com/gaearon/redux-devtools) are enabled by default in development.
 
-If you have the [Redux DevTools chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) installed it will automatically detect and you can start using it straight away. -->
-
-<!-- DevTools are not enabled during production. -->
+If you have the [Redux DevTools chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) installed it will automatically detect and you can start using it straight away.
 
 ### Using The `public/` Folder
 
